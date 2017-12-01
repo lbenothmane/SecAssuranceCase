@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            name="SeniorDesign Diagram Type"
+            type="SeniorDesign"
+            id="SeniorDesign.SeniorDesignDiagramType">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            name="SeniorDesign Diagram Type Provider"
+            class="seniordesign.diagram.SeniorDesignDiagramTypeProvider"
+            id="SeniorDesign.SeniorDesignDiagramTypeProvider">
+         <diagramType
+               id="SeniorDesign.SeniorDesignDiagramType">
+         </diagramType>
+      </diagramTypeProvider>
+   </extension>
+
+</plugin>
