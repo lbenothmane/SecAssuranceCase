@@ -5,9 +5,9 @@ This project was developed as coursework at Iowa State University.
 It makes use of Eclipse's Graphiti and JGit IBM's Wala.
 For more information of these things, see:
 
-https://www.eclipse.org/graphiti/
-https://github.com/wala/WALA
-https://www.eclipse.org/jgit/
+https://www.eclipse.org/graphiti/<br></br>
+https://github.com/wala/WALA<br></br>
+https://www.eclipse.org/jgit/<br></br>
 
 Installation:
 
