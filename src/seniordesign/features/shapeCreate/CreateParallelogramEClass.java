@@ -40,7 +40,7 @@ public class CreateParallelogramEClass extends AbstractCreateFeature
 		eClass.setInstanceClassName("Parallelogram" + System.lineSeparator());
 
 		addGraphicalRepresentation(context, eClass);
-		Util.writeNewShape(currentElementName, getDiagram());
+		//Util.writeNewShape(currentElementName, getDiagram());
 		return new Object[]
 		{ eClass };
 	}

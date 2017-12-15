@@ -1,0 +1,7 @@
+1. Install the eclipse graphiti plugin
+    
+    Go to help -> install new software and use http://download.eclipse.org/graphiti/updates/0.14.0 as the update site.
+    
+2. Configure project build path -> add library -> plug-in dependencies
+    
+    

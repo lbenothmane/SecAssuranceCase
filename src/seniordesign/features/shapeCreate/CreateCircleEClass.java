@@ -39,7 +39,7 @@ public class CreateCircleEClass extends AbstractCreateFeature implements ICreate
 		eClass.setName(currentElementName);
 		eClass.setInstanceClassName("Circle" + System.lineSeparator());
 		addGraphicalRepresentation(context, eClass);
-		Util.writeNewShape(currentElementName, getDiagram());
+		//Util.writeNewShape(currentElementName, getDiagram());
 		return new Object[]
 		{ eClass };
 	}

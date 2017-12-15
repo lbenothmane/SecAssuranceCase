@@ -42,7 +42,7 @@ public class OpenDataCustomFeature extends AbstractCustomFeature
 				oldName.substring(oldName.indexOf(System.lineSeparator())).trim());
 		obj.setInstanceClassName( oldClassName + System.lineSeparator() + getData);
 
-		Util.writeData(obj.getName(), getData, getDiagram());
+		//Util.writeData(obj.getName(), getData, getDiagram());
 	}
 
 }

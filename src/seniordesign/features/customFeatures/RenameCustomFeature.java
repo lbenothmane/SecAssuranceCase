@@ -32,15 +32,21 @@ public class RenameCustomFeature extends AbstractCustomFeature
 	@Override
 	public boolean canExecute(ICustomContext context)
 	{
-		PictogramElement[] elements = context.getPictogramElements();
-		if (elements != null && elements.length == 1)
+		boolean ret = false;
+		PictogramElement[] pes = context.getPictogramElements();
+		if (pes != null && pes.length >= 1)
 		{
-			if (elements[0] instanceof EClass)
+			ret = true;
+			for (PictogramElement pe : pes)
 			{
-				return true;
+				Object bo = getBusinessObjectForPictogramElement(pe);
+				if (!(bo instanceof EClass))
+				{
+					ret = false;
+				}
 			}
 		}
-		return true;
+		return ret;
 	}
 
 	@Override
@@ -48,9 +54,9 @@ public class RenameCustomFeature extends AbstractCustomFeature
 	{
 		PictogramElement[] elements = context.getPictogramElements();
 		EClass temp = (EClass) getBusinessObjectForPictogramElement(elements[0]);
-		String oldName = temp.getName();
+		//String oldName = temp.getName();
 		String newName = Util.askString("Enter New Name", "New Name", temp.getName());
-		Util.writeNewName(oldName, newName, getDiagram());
+		//Util.writeNewName(oldName, newName, getDiagram());
 		changes = true;
 		temp.setName(newName);		
 		updatePictogramElement(elements[0]);

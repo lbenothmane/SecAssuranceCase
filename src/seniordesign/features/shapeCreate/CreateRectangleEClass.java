@@ -39,7 +39,7 @@ public class CreateRectangleEClass extends AbstractCreateFeature
 		eClass.setInstanceClassName("Rectangle" + System.lineSeparator());
 
 		addGraphicalRepresentation(context, eClass);
-		Util.writeNewShape(currentElementName, getDiagram());
+		//Util.writeNewShape(currentElementName, getDiagram());
 		return new Object[]
 		{ eClass };
 	}

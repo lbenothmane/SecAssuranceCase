@@ -39,7 +39,7 @@ public class CreateOvalEClass extends AbstractCreateFeature implements ICreateFe
 		eClass.setInstanceClassName("Oval" + System.lineSeparator());
 
 		addGraphicalRepresentation(context, eClass);
-		Util.writeNewShape(currentElementName, getDiagram());
+		//Util.writeNewShape(currentElementName, getDiagram());
 		return new Object[]
 		{ eClass };
 	}

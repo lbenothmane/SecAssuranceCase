@@ -34,7 +34,9 @@ import seniordesign.features.ResizeFeature;
 import seniordesign.features.customFeatures.AssociateDiagramCustomFeature;
 import seniordesign.features.customFeatures.DrillDownCustomFeature;
 import seniordesign.features.customFeatures.EditBodyCustomFeature;
+import seniordesign.features.customFeatures.GenerateCallGraphFeature;
 import seniordesign.features.customFeatures.RenameCustomFeature;
+import seniordesign.features.customFeatures.RevalidateClaimFeature;
 import seniordesign.features.shapeCreate.CreateCircleEClass;
 import seniordesign.features.shapeCreate.CreateOvalEClass;
 import seniordesign.features.shapeCreate.CreateParallelogramEClass;
@@ -83,7 +85,8 @@ public class SeniorDesignFeatureProvider extends DefaultFeatureProvider
 		else if (context.getNewObject() instanceof EClass)
 		{
 			EClass eClass = (EClass) context.getNewObject();
-			String className = eClass.getInstanceClassName().substring(0, eClass.getInstanceTypeName().indexOf(System.lineSeparator()));
+			String className = eClass.getInstanceClassName().substring(0,
+					eClass.getInstanceTypeName().indexOf(System.lineSeparator()));
 			if (className.equals("Parallelogram"))
 				return new AddParallelogramEClass(this);
 			else if (className.equals("Rectangle"))
@@ -101,7 +104,8 @@ public class SeniorDesignFeatureProvider extends DefaultFeatureProvider
 	public ICustomFeature[] getCustomFeatures(ICustomContext context)
 	{
 		return new ICustomFeature[]
-		{ new RenameCustomFeature(this), new DrillDownCustomFeature(this), new AssociateDiagramCustomFeature(this) };
+		{ new RenameCustomFeature(this), new DrillDownCustomFeature(this), new AssociateDiagramCustomFeature(this),
+				new GenerateCallGraphFeature(this), new RevalidateClaimFeature(this) };
 	}
 
 	@Override

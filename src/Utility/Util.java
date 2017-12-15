@@ -1,12 +1,12 @@
 package Utility;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.FileWriter;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -136,108 +136,4 @@ public class Util
 		resourceURI = resourceSet.getURIConverter().normalize(resourceURI);
 		return resourceURI;
 	}
-
-	public static void writeData(String name, String data, Diagram diagram)
-	{
-		try
-		{
-			File output = new File(diagram.getName() + ".txt");
-			Scanner scan = new Scanner(output);
-			ArrayList<String> fileData = new ArrayList<String>();
-			while (scan.hasNextLine())
-			{
-				fileData.add(scan.nextLine());
-			}
-			FileWriter write = new FileWriter(output);
-			for (int i = 0; i < fileData.size(); i++)
-			{
-				String temp = fileData.get(i);
-				if (temp.length() > 5)
-				{
-					if (temp.substring(0, 6).equals("name: "))
-					{
-						if (temp.substring(6).equals(name))
-						{
-							write.write("name: " + name + System.lineSeparator());
-							write.write("data: " + data + System.lineSeparator());
-							write.write("}" + System.lineSeparator());
-							scan.close();
-							write.close();
-							return;
-						}
-					} else
-					{
-						write.write(fileData.get(i) + System.lineSeparator());
-					}
-				} else
-				{
-					write.write(fileData.get(i) + System.lineSeparator());
-				}
-			}
-			scan.close();
-			write.close();
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public static void writeNewName(String oldname, String newname, Diagram diagram)
-	{
-		try
-		{
-			File output = new File(diagram.getName() + ".txt");
-			Scanner scan = new Scanner(output);
-			ArrayList<String> fileData = new ArrayList<String>();
-			while (scan.hasNextLine())
-			{
-				fileData.add(scan.nextLine());
-			}
-			FileWriter write = new FileWriter(output);
-			for (int i = 0; i < fileData.size(); i++)
-			{
-				String temp = fileData.get(i);
-				if (temp.length() > 5)
-				{
-					if (temp.substring(0, 6).equals("name: "))
-					{
-						if (temp.substring(6).equals(oldname))
-						{
-							write.write("name: " + newname + System.lineSeparator());
-						}
-					} else
-					{
-						write.write(fileData.get(i) + System.lineSeparator());
-					}
-				} else
-				{
-					write.write(fileData.get(i) + System.lineSeparator());
-				}
-			}
-			scan.close();
-			write.close();
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public static void writeNewShape(String name, Diagram diagram)
-	{
-		File output = new File(diagram.getName() + ".txt");
-		try
-		{
-			FileWriter write = new FileWriter(output, true);
-			write.write("{" + System.lineSeparator());
-			write.write("name: " + name + System.lineSeparator());
-			write.write("data: " + System.lineSeparator());
-			write.write("}" + System.lineSeparator());
-			write.close();
-		} catch (IOException e)
-		{
-
-			e.printStackTrace();
-		}
-	}
-
 }
